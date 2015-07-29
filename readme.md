@@ -27,3 +27,13 @@ to run your tests:
 docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit --version"
 docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
 ```
+
+## As base image
+
+You can use it as a base image like below:
+
+```
+FROM geshan/php-composer-alpine
+
+//my docker image contents
+```
