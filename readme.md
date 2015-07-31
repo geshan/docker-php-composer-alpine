@@ -4,6 +4,8 @@ This is a docker container for PHP with composer installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux]() base image its very small at `~39 MB`.
 
+[![](https://badge.imagelayers.io/geshan/php-composer-alpine:latest.svg)](https://imagelayers.io/?images=geshan/php-composer-alpine:latest 'Get your own badge on imagelayers.io')
+
 ## Pull it from docker registry
 
 To pull the docker image you can do it with:
