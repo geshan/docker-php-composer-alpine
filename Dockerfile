@@ -14,6 +14,6 @@ COPY . /var/www
 
 VOLUME /var/www
 
-CMD ["bash"]
+CMD ["/bin/sh"]
 
 ENTRYPOINT ["/bin/sh", "-c"]
