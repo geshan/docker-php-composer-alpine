@@ -1,8 +1,9 @@
 ## Docker Container for PHP and Composer
 
-This is a docker container for PHP with composer installed. It can be used with
+This is a docker container for PHP 5.6 with composer installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~39 MB`.
+You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/tree/php7-branch) version too.
 
 [![](https://badge.imagelayers.io/geshan/php-composer-alpine:latest.svg)](https://imagelayers.io/?images=geshan/php-composer-alpine:latest 'Get your own badge on imagelayers.io')
 
