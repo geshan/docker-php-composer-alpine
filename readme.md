@@ -1,17 +1,17 @@
-## Docker Container for PHP7 and Composer
+## Docker Container for PHP 7.3 and Composer
 
-This is a docker container for PHP7 with composer installed. It can be used with
+This is a docker container for PHP 7.3 with composer installed. It can be used with
 any PHP project using composer. As this image is build on top of the
-[Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~39 MB`.
+[Alpine Linux](http://www.alpinelinux.org/) base image its very small.
 
-[![](https://badge.imagelayers.io/geshan/php-composer-alpine:php7.svg)](https://imagelayers.io/?images=geshan/php-composer-alpine:php7 'Get your own badge on imagelayers.io')
+Based on [geshan/docker-php-composer-alpine](https://github.com/geshan/docker-php-composer-alpine).
 
 ## Pull it from docker registry
 
 To pull the docker image you can do it with:
 
 ```
-docker pull geshan/php-composer-alpine:php7
+docker pull davidzapata/php-composer-alpine
 ```
 
 ## Usage
@@ -20,14 +20,14 @@ After pulling the image from docker registry, go into any project that has a com
 Then run the following commands to run php or composer:
 
 ```
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "composer install --prefer-dist"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "composer install --prefer-dist"
 ```
 Lets say if you are have PHPUnit in your composer.json, you can run the following commands
 to run your tests:
 
 ```
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit --version"
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "./vendor/bin/phpunit --version"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "./vendor/bin/phpunit"
 ```
 
 ## As base image
@@ -35,7 +35,7 @@ docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
 You can use it as a base image like below:
 
 ```
-FROM geshan/php-composer-alpine:php7
+FROM davidzapata/php-composer-alpine
 
 //my docker image contents
 ```
