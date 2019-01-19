@@ -1,8 +1,6 @@
-FROM alpine:3.3
+FROM php:7.3-alpine
 
-Maintainer Geshan Manandhar <geshan@gmail.com>
-
-RUN apk --update add wget curl git php php-curl php-openssl php-json php-phar php-dom && rm /var/cache/apk/*
+MAINTAINER David Zapata <jdavid.zapatab@gmail.com>
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
 
