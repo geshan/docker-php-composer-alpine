@@ -20,14 +20,25 @@ After pulling the image from docker registry, go into any project that has a com
 Then run the following commands to run php or composer:
 
 ```
-docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "composer install --prefer-dist"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine composer install --prefer-dist
 ```
-Lets say if you are have PHPUnit in your composer.json, you can run the following commands
-to run your tests:
+
+To create a Laravel project using this image (for example, a blog), run:
+```
+cd my_dir
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine composer create-project --prefer-dist laravel/laravel blog
+cd blog
+```
+
+Using the sample laravel project, you can test it with:
 
 ```
-docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "./vendor/bin/phpunit --version"
-docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine "./vendor/bin/phpunit"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine ./vendor/bin/phpunit
+```
+
+Or you can serve it using:
+```
+docker run --rm -p 80:80 -v $(pwd):/var/www davidzapata/php-composer-alpine php -S 0.0.0.0:80 -t public
 ```
 
 ## As base image
@@ -37,5 +48,5 @@ You can use it as a base image like below:
 ```
 FROM davidzapata/php-composer-alpine
 
-//my docker image contents
+// my docker image contents
 ```
