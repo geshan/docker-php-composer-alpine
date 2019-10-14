@@ -3,7 +3,6 @@
 This is a docker container for PHP7.3 with composer 1.9.0 installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~39 MB`.
-You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/tree/php7-branch) version too.
 
 [![](https://images.microbadger.com/badges/image/geshan/php-composer-alpine.svg)](https://microbadger.com/images/geshan/php-composer-alpine "Get your own image badge on microbadger.com")
 
@@ -36,7 +35,7 @@ docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
 You can use it as a base image like below:
 
 ```
-FROM geshan/php-composer-alpine:php7
+FROM geshan/php-composer-alpine:latest #7.3 now
 
 //my docker image contents
 ```
