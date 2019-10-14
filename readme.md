@@ -3,8 +3,9 @@
 This is a docker container for PHP7.3 with composer 1.9.0 installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~39 MB`.
+You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/tree/php7-branch) version too.
 
-[![](https://badge.imagelayers.io/geshan/php-composer-alpine:php7.svg)](https://imagelayers.io/?images=geshan/php-composer-alpine:php7 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/geshan/php-composer-alpine.svg)](https://microbadger.com/images/geshan/php-composer-alpine "Get your own image badge on microbadger.com")
 
 ## Pull it from docker registry
 

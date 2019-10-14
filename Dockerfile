@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.3
 
 Maintainer Geshan Manandhar <geshan@gmail.com>
 
