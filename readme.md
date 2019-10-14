@@ -1,6 +1,6 @@
-## Docker Container for PHP and Composer
+## Docker Container for PHP7 and Composer
 
-This is a docker container for PHP 5.6 with composer installed. It can be used with
+This is a docker container for PHP7.3 with composer 1.9.0 installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~39 MB`.
 You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/tree/php7-branch) version too.
@@ -12,7 +12,7 @@ You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/t
 To pull the docker image you can do it with:
 
 ```
-docker pull geshan/php-composer-alpine
+docker pull geshan/php-composer-alpine:php7
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
 You can use it as a base image like below:
 
 ```
-FROM geshan/php-composer-alpine
+FROM geshan/php-composer-alpine:php7
 
 //my docker image contents
 ```
