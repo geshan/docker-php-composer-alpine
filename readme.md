@@ -12,7 +12,7 @@ You can check the [PHP 7](https://github.com/geshan/docker-php-composer-alpine/t
 To pull the docker image you can do it with:
 
 ```
-docker pull geshan/php-composer-alpine:php7
+docker pull geshan/php-composer-alpine:latest
 ```
 
 ## Usage
