@@ -1,4 +1,4 @@
-FROM php:7.3-alpine
+FROM php:7.4-alpine
 
 LABEL maintainer="David Zapata <jdavid.zapatab@gmail.com>"
 

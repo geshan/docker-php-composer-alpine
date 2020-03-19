@@ -1,10 +1,14 @@
-## Docker Container for PHP 7.3 and Composer
+## Docker Container for PHP 7.4 and Composer
 
-This is a docker container for PHP 7.3 with composer installed. It can be used with
+This is a docker container for PHP 7.4 with composer installed. It can be used with
 any PHP project using composer. As this image is build on top of the
 [Alpine Linux](http://www.alpinelinux.org/) base image its very small.
 
-Based on [geshan/docker-php-composer-alpine](https://github.com/geshan/docker-php-composer-alpine).
+## Build
+
+To build this image, apply any needed changes to the Dockerfile, and build the image like this:
+
+    docker build -t php-composer-alpine .
 
 ## Pull it from docker registry
 
