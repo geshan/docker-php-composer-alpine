@@ -7,7 +7,8 @@ RUN mkdir -p /var/www \
     && pecl install xdebug && docker-php-ext-enable xdebug \
     && docker-php-ext-install bcmath \ 
     && docker-php-ext-install pdo_mysql \ 
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
+    && pecl install redis && docker-php-ext-enable redis \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 WORKDIR /var/www
 COPY . /var/www
