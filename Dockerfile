@@ -7,6 +7,7 @@ RUN mkdir -p /var/www \
     && apk add --no-cache zip libzip-dev \
     && pecl install xdebug && docker-php-ext-enable xdebug \
     && docker-php-ext-configure zip \
+    && docker-php-ext-configure soap \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_mysql \
