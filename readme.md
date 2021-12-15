@@ -8,7 +8,7 @@ any PHP project using composer. As this image is build on top of the
 
 To build this image, apply any needed changes to the Dockerfile, and build the image like this:
 
-    docker build -t davidzapata/php-composer-alpine:8.0 .
+    docker buildx build --platform linux/amd64 -t davidzapata/php-composer-alpine:8.0 .
 
 ## Pull it from docker registry
 
