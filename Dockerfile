@@ -2,7 +2,7 @@ FROM php:8.2-alpine
 
 LABEL maintainer="David Zapata <jdavid.zapatab@gmail.com>"
 
-RUN apk update && apx upgrade
+RUN apk update && apk upgrade
 RUN sync
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions
