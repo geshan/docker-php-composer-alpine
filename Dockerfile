@@ -16,6 +16,7 @@ RUN install-php-extensions pdo_mysql
 RUN install-php-extensions soap
 RUN install-php-extensions redis
 RUN install-php-extensions pcntl
+RUN install-php-extensions mongodb
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 WORKDIR /var/www
