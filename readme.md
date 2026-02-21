@@ -1,41 +1,56 @@
-## Docker Container for PHP7 and Composer
+## Docker Container for PHP 8.2 and Composer
 
-This is a docker container for PHP7.3 with composer 1.9.0 installed. It can be used with
-most PHP projects using composer. As this image is build on top of the
-[Alpine Linux](http://www.alpinelinux.org/) base image its very small at `~17 MB`.
+This is a docker container for PHP 8.2 with composer installed. It can be used with
+any PHP project using composer. As this image is built on top of the
+[Alpine Linux](http://www.alpinelinux.org/) base image, it is tiny.
 
-[![](https://images.microbadger.com/badges/image/geshan/php-composer-alpine.svg)](https://microbadger.com/images/geshan/php-composer-alpine "Get your own image badge on microbadger.com")
+## Build
 
-## Pull it from docker registry
+To build this image, apply any necessary changes to the Dockerfile and build the image like this:
 
-To pull the docker image you can do it with:
+    docker buildx build --platform linux/amd64 -t davidzapata/php-composer-alpine:8.2 .
+
+## Pull it from the docker registry
+
+To pull the docker image, you can do it with:
 
 ```
-docker pull geshan/php-composer-alpine:latest
+docker pull davidzapata/php-composer-alpine
 ```
 
 ## Usage
 
-After pulling the image from docker registry, go into any project that has a composer.json.
+After pulling the image from the docker registry, go into any project that has a composer.json.
 Then run the following commands to run php or composer:
 
 ```
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "composer install --prefer-dist"
-```
-Lets say if you are have PHPUnit in your composer.json, you can run the following commands
-to run your tests:
-
-```
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit --version"
-docker run -v $(pwd):/var/www geshan/php-composer-alpine "./vendor/bin/phpunit"
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine:8.2 composer install --prefer-dist
 ```
 
-## As base image
+To create a Laravel project using this image (for example, a blog), run:
+```
+cd my_dir
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine:8.2 composer create-project --prefer-dist laravel/laravel blog
+cd blog
+```
+
+Using the sample laravel project, you can test it with:
+
+```
+docker run --rm -v $(pwd):/var/www davidzapata/php-composer-alpine:8.2 ./vendor/bin/phpunit
+```
+
+Or you can serve it using:
+```
+docker run --rm -p 80:80 -v $(pwd):/var/www davidzapata/php-composer-alpine:8.2 php -S 0.0.0.0:80 -t public
+```
+
+## As a base image
 
 You can use it as a base image like below:
 
 ```
-FROM geshan/php-composer-alpine:latest #7.3 now
+FROM davidzapata/php-composer-alpine:8.2
 
-//my docker image contents
+// my docker image contents
 ```

@@ -1,29 +1,30 @@
-FROM alpine:edge
+FROM php:8.2-alpine
 
-Maintainer Geshan Manandhar <geshan@gmail.com>
+LABEL maintainer="David Zapata <jdavid.zapatab@gmail.com>"
 
-RUN apk --update add wget \ 
-		     curl \
-		     git \
-		     php7 \
-		     php7-curl \
-		     php7-openssl \
-		     php7-iconv \
-		     php7-json \
-		     php7-mbstring \
-		     php7-phar \
-		     php7-dom --repository http://nl.alpinelinux.org/alpine/edge/testing/ && rm /var/cache/apk/*
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
-
+RUN apk update && apk upgrade
+RUN sync
+RUN apk upgrade curl
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-php-extensions
 RUN mkdir -p /var/www
+RUN install-php-extensions xdebug
+RUN install-php-extensions gd
+RUN install-php-extensions mcrypt
+RUN install-php-extensions zip
+RUN install-php-extensions bcmath
+RUN install-php-extensions pdo_mysql
+RUN install-php-extensions soap
+RUN install-php-extensions redis
+RUN install-php-extensions pcntl
+RUN install-php-extensions mongodb
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+RUN rm -rf /var/cache/apk/*
 
 WORKDIR /var/www
-
 COPY . /var/www
-
 VOLUME /var/www
 
-CMD ["/bin/sh"]
+EXPOSE 80 8000
 
-ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["sh"]
