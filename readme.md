@@ -1,18 +1,18 @@
 ## Docker Container for PHP 8.2 and Composer
 
 This is a docker container for PHP 8.2 with composer installed. It can be used with
-any PHP project using composer. As this image is build on top of the
-[Alpine Linux](http://www.alpinelinux.org/) base image it is very small.
+any PHP project using composer. As this image is built on top of the
+[Alpine Linux](http://www.alpinelinux.org/) base image, it is tiny.
 
 ## Build
 
-To build this image, apply any needed changes to the Dockerfile, and build the image like this:
+To build this image, apply any necessary changes to the Dockerfile and build the image like this:
 
     docker buildx build --platform linux/amd64 -t davidzapata/php-composer-alpine:8.2 .
 
-## Pull it from docker registry
+## Pull it from the docker registry
 
-To pull the docker image you can do it with:
+To pull the docker image, you can do it with:
 
 ```
 docker pull davidzapata/php-composer-alpine
@@ -20,7 +20,7 @@ docker pull davidzapata/php-composer-alpine
 
 ## Usage
 
-After pulling the image from docker registry, go into any project that has a composer.json.
+After pulling the image from the docker registry, go into any project that has a composer.json.
 Then run the following commands to run php or composer:
 
 ```
@@ -45,7 +45,7 @@ Or you can serve it using:
 docker run --rm -p 80:80 -v $(pwd):/var/www davidzapata/php-composer-alpine:8.2 php -S 0.0.0.0:80 -t public
 ```
 
-## As base image
+## As a base image
 
 You can use it as a base image like below:
 
